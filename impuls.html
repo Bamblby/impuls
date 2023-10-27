@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Проектик</title>
+    </head>
+    <body>
+        <form method="post" action="/">
+            <h1>Список сотрудников компании "Импульс"</h1>
+            {% if db %}
+                {% for department in db %}
+                <p><i>{{department}}:</i></p>
+                <ul>
+                    {% for people in db[department] %}
+                    <li> {{ people }} - {{db[department][people]}}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            {% endif %}
+    </body>
+</html>
